@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/app/Http/Controllers/SellerHelpController.php</file>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/app/Http/Routes/OPOSsumRoutes.php</file>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/app/Http/Routes/TerminalRoutes.php</file>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/resources/views/newbuyerinformation.blade.php</file>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/resources/views/merchant/cashmgmt/cml.blade.php</file>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/resources/views/common/sellermenu.blade.php</file>
+            <file>file:/C:/wamp64/www/svn/svnproject/osmall/trunk/app/Http/Controllers/OpossumController.php</file>
+        </group>
+    </open-files>
+</project-private>

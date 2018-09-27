@@ -1,0 +1,16 @@
+<!--<form>-->
+  <div class="row justify-content-end mb-2 mt-2">
+    <div class="col-7">
+      <input class="form-control" type="text" placeholder="Search" [formControl]="term">
+    </div>
+    <div class="col-1">
+      <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </div>
+<!--</form>-->
+
+<div>
+  <ul>
+    <li *ngFor="let item of items | async">{{item}}</li>
+  </ul>
+</div>

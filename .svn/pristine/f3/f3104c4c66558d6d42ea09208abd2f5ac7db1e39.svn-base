@@ -1,0 +1,1 @@
+@extends('logistics.common')

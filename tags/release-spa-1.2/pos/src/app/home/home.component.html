@@ -1,0 +1,141 @@
+<app-search-products>
+</app-search-products>
+
+<div class="row">
+  <div class="col-md-2 offset-md-2">
+    <div class="card">
+      <img class="card-img" src="../../assets/images/{{imageId}}.jpg" alt="Card image cap" height="250">
+    </div>
+  </div>
+  <div class="col-md-8">
+    <table class="table table-bordered table-fixedheader">
+      <thead>
+        <tr>
+          <th width="10%">No</th>
+          <th width="50%">Description</th>
+          <th width="10%">Price</th>
+          <th width="10%">Quantity</th>
+          <th width="10%">Amount</th>
+          <th width="10%">Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let item of collection; let i = index;">
+          <td width="10%">{{i+1}}</td>
+          <td width="50%">{{item.description}}</td>
+          <td width="10%">{{item.price}}</td>
+          <td width="10%">{{item.quantity}}</td>
+          <td width="10%">{{item.amount}}</td>
+          <td width="10%"><button type="button" class="close" aria-label="Close" (click)="remove(i)">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-7 offset-md-4">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="id" class="form-control" name="id" autofocus (change)="add()" #scanInput/>
+    </div>
+  </div>
+  <div class="col-md-1">
+    <!--<button type="button" class="btn btn-primary" (click)="add()">Add</button>-->
+    <button type="button" class="btn btn-primary my-2 my-sm-0" (click)=confirmModalShow()>Confirm</button>
+    <!--<button type="button" class="btn btn-primary" (click)="showModal()">Static modal</button>-->
+  </div>
+</div>
+
+<div class="modal fade" bsModal #qtyModal="bs-modal" [config]="{backdrop: 'static'}" role="dialog" aria-labelledby="mySmallModalLabel"
+  aria-hidden="true" (onShow)="onShown()" (onShown)="setFocus()" (onHide)="setScanInputFocus()">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title pull-left">Add Quantity</h1>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="qtyModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group input-group-lg">
+          <input type="number" class="form-control" [(ngModel)]="updatedQuantity" id="qty" #input>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button class="btn btn-primary" (click)="updateQty()">Update </button>
+          <button class="btn btn-default" (click)="qtyModal.hide()"> Cancel </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" bsModal #confirmModal="bs-modal" [config]="{backdrop: 'static'}" 
+    tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true" (onShow)="conShown()" (onShown)="setFocus()" (onHide)="setScanInputFocus()">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title pull-left">Checkout</h1>
+        <button type="button" class="close pull-right" aria-label="Close" (click)="confirmModal.hide()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group row">
+          <label for="" class="col-2 col-form-label col-form-label-lg">Total:</label>
+          <div class="col-10">
+            <h2 class="form-control form-control-lg">{{total}}</h2>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="qty" class="col-2 col-form-label col-form-label-lg">Amount:</label>
+          <div class="col-10">
+            <input type="number" class="form-control form-control-lg" [(ngModel)]="amount" id="qty" (keyup)="calcBal($event)" #cinput>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="" class="col-2 col-form-label col-form-label-lg">Change:</label>
+          <div class="col-10">
+            <h2 class="form-control form-control-lg" [ngClass]="{'red': balance < 0,'green':balance >= 0}">{{balance}}</h2>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <div class="pull-left">
+          <button class="btn btn-primary" (click)="confirmOrder()" [disabled]="balance < 0">Confirm </button>
+          <button class="btn btn-default" (click)="confirmModal.hide()"> Cancel </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>F2</td>
+                    <td>To Update Quantity of Last scanned Item</td>
+                </tr>
+                <tr>
+                    <td>F4</td>
+                    <td>To Confirm order and Enter amount</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 60px;
+}
+
+/*
+ * Typography
+ */
+
+h1 {
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+  /*border-bottom: 1px solid #eee;*/
+}
+

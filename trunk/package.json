@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "devDependencies": {
+    "gulp": "^3.8.8"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.0.0",
+    "laravel-elixir": "^3.0.0",
+    "matomo-tracker": "^2.1.0",
+    "piwik": "^1.0.9",
+    "piwik-tracker": "^1.1.2"
+  }
+}
